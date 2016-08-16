@@ -7,7 +7,7 @@ Usage: Convert between xml object and xml string
 example
 -------------------------------------------------------------------
 
-<code>
+```c++
 //-----------------------------------------------------------------
 // define a xml document class (include sub class inherit iXmlNode)
 // root node should implement iXmlDoc
@@ -18,7 +18,7 @@ example
 class example : public iXmlDoc {
 public:
     void Serialize(xml::Adapter &adapter) {
-        std::unordered_map<std::string, std::string> attrs;
+       std::unordered_map<std::string, std::string> attrs;
         attrs["version"] = "1.0";
         attrs["encoding"] = "utf-8";
         // set meta data in root node
@@ -52,11 +52,11 @@ public:
         XML::NODE(adapter, content);
     }
 };
-</code>
+```
 
 How to call
 ------------------------------------------------------------------
-<code>
+```c++
 //----------------------------------------------------------------
 // how convert between xml object and xml strings
 int main() {
@@ -85,11 +85,11 @@ int main() {
         ...
     }
 }
-</code>
+```
 
 converted xml strings like as follow:
 --------------------------------------------------------------------
-<code>
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <example attr1="value1">
     <attr2>100.0</attr2>
@@ -98,17 +98,18 @@ converted xml strings like as follow:
     <subnode attr="true">sub node 1<subnode>
     <subnode attr="false">sub node 2<subnode>
 </example>
-</code>
+```
 
 Nodes
 --------------------------------------------------------------------
 support type: 
-    * std::string
-    * int
-    * unsigned in
-    * long
-    * unsinged char
-    * double
-    * bool
-    * std::vector
-    * class implemented xml::iXmlNode
+- std::string
+- int
+- unsigned int
+- long
+- unsinged char
+- double
+- float
+- bool
+- std::vector
+- class implemented xml::iXmlNode
