@@ -101,7 +101,7 @@ converted xml strings like as follow:
 </example>
 ```
 
-Nodes
+Notes
 --------------------------------------------------------------------
 support type: 
 - std::string
