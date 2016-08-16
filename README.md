@@ -84,6 +84,7 @@ int main() {
     } catch (xml::xml_exception &ex) {
         ...
     }
+    ...
 }
 ```
 
