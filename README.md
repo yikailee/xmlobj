@@ -96,8 +96,8 @@ converted xml strings like as follow:
     <attr2>100.0</attr2>
     <values>1</values>
     <values>2</values>
-    <subnode attr="true">sub node 1<subnode>
-    <subnode attr="false">sub node 2<subnode>
+    <subnode attr="true">sub node 1</subnode>
+    <subnode attr="false">sub node 2</subnode>
 </example>
 ```
 
