@@ -27,7 +27,8 @@ public:
 	virtual void Serialize(Adapter&) = 0;
 	//virtual bool operator==(const iXmlDoc&)const;
 
-	template<typename T> static std::string Marshal(T &t) {
+	template<typename T> 
+	static std::string Marshal(T &t) throw(xml::xml_exception) {
 		std::stringstream ss;
 		StringSink sink(&ss);
 		// create a writer
@@ -38,13 +39,15 @@ public:
 		return ss.str();
 	}
 
-	template<typename T> static void SaveToXml(const std::string &file, T &t) {
+	template<typename T> 
+	static void SaveToXml(const std::string &file, T &t) throw(xml::xml_exception) {
 		std::ofstream outfile(file.c_str(), std::ofstream::binary);
 		outfile << iXmlDoc::Marshal(t);
 		outfile.close();	
 	}
 
-	template<typename T> static void UnMarshal(const std::string &xmlStr, T &t) {
+	template<typename T> 
+	static void UnMarshal(const std::string &xmlStr, T &t) {
 		StringSource ss(xmlStr.c_str());
 		xml::Scanner scanner(ss);
 		xml::Reader reader(scanner);
@@ -52,7 +55,8 @@ public:
 		t.Serialize(reader);
 	}
 
-	template<typename T> static void ReadXml(const std::string &file, T &t) {
+	template<typename T> 
+	static void ReadXml(const std::string &file, T &t) {
 		std::ifstream infile(file.c_str(), std::ifstream::in);
 		std::stringstream buffer;
 		buffer << infile.rdbuf();
